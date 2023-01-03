@@ -1,0 +1,21 @@
+
+#Rpi Install Openocd
+
+sudo apt-get install git autoconf libtool make pkg-config libusb-1.0-0 libusb-1.0-0-dev
+sudo apt install libgpiod-dev
+
+git clone https://github.com/openocd-org/openocd.git
+
+cd openocd/
+
+./bootstrap
+
+./configure --enable-sysfsgpio --enable-bcm2835gpio
+
+make
+
+make install
+
+cd openocd_rpi_2+
+
+openocd -f rpi-102_C8T6-swd.cfg -f target/stm32f1x.cfg
