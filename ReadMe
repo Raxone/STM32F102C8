@@ -8,6 +8,10 @@ Board have solder pins for SWD/JTAG (J20)
 
 J20 Pinout
 
+          J20	
+      º º º º º º -> pin1
+      º º º º º º -> pin2
+
 pin1  3,3v        (VBAT,VDD_1,2,3,VDDA, MCU_Pin 1,9,24,36,48 )
 pin2  swdio/jtms  (PA13, MCU_pin 34)
 pin3  NC.         (I use for Boot1 pin)
