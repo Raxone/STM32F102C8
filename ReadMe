@@ -45,8 +45,8 @@ Rpi_3b+             APC_Board
 
 Soldering on J20   (See Picture Boot0_Boot1_pins.jpg)
 pin1(3,3v) -> pin5 for pullup
-pin3 -> 10Kb_resistor -> Boot1.
-pin7 -> 10Kb_resistor -> Boot0.
+pin3 -> 10K_resistor -> Boot1.
+pin7 -> 10K_resistor -> Boot0.
 
 
 #Rpi Install Openocd
