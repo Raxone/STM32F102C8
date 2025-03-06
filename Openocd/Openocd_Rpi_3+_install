@@ -1,21 +1,30 @@
+# Install required dependencies
+sudo apt-get install -y git autoconf libtool make pkg-config libusb-1.0-0 libusb-1.0-0-dev
+sudo apt-get install -y libgpiod-dev
 
-#Rpi Install Openocd
-
-sudo apt-get install git autoconf libtool make pkg-config libusb-1.0-0 libusb-1.0-0-dev
-sudo apt install libgpiod-dev
-
+# Clone the OpenOCD repository
 git clone https://github.com/openocd-org/openocd.git
 
+# Navigate to the OpenOCD directory
 cd openocd/
 
+# Prepare the build system
 ./bootstrap
 
+# Configure OpenOCD with GPIO support for Raspberry Pi
 ./configure --enable-sysfsgpio --enable-bcm2835gpio
 
-make
+# Compile OpenOCD
+make -j$(nproc)
 
-make install
+# Install OpenOCD
+sudo make install
 
-cd openocd_rpi_2+
+#Download Git
+git clone https://github.com/Raxone/STM32F102C8.git
 
+# Navigate to the configuration directory
+cd STM32F102C8/Openocd
+
+# Run OpenOCD with the specified configuration files
 openocd -f rpi-102_C8T6-swd.cfg -f target/stm32f1x.cfg
